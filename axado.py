@@ -47,8 +47,16 @@ if __name__ == "__main__":
 				for [p_nome, p_inicial, p_final, p_preco] in p:
 					#print 'p_nome=%s | p_inicial=%s | p_final=%s | p_preco=%s' % (p_nome, p_inicial, p_final, p_preco)
 					#print '%s - %s - %s - %s' % (rt_kg, p_inicial, p_final, peso)
-					if (p_final):
-						if rt_kg.strip() == p_nome.strip() and (float(peso) >= float(p_inicial) and float(peso) < float(p_final)):							
+					
+					# if (p_final):
+					# 	if rt_kg.strip() == p_nome.strip() and (float(peso) >= float(p_inicial) and float(peso) < float(p_final)):							
+					# 		faixa = float(peso) * float(p_preco)	
+
+					if rt_kg.strip() == p_nome.strip():
+						if (p_final):
+							if (float(peso) >= float(p_inicial) and float(peso) < float(p_final)):							
+								faixa = float(peso) * float(p_preco)
+						else:
 							faixa = float(peso) * float(p_preco)
 
 				#quo = 94 / 100
@@ -96,6 +104,12 @@ if __name__ == "__main__":
 								
 								if float(r_preco[2]) < float(r_rotas[2]):
 									faixa = float(peso) * float(r_preco[3])
+
+								# if r_rotas[2]:
+								# 	if float(r_preco[2]) < float(r_rotas[2]):
+								# 		faixa = float(peso) * float(r_preco[3])
+								# else:
+								# 	faixa = float(peso) * float(r_preco[3])
 
 					alfandega = (float(valor_seguro) + float(fixa) + float(faixa)) * (float(r_rotas[6]) / float(100))
 					icms = float(r_rotas[5])
